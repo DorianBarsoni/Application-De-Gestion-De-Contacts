@@ -1,0 +1,32 @@
+CREATE TABLE Contact(
+    id INTEGER PRIMARY KEY,
+    nom TEXT,
+    prenom TEXT,
+    entreprise TEXT,
+    mail TEXT,
+    telephonee TEXT,
+    photo TEXT,
+    dateCrea TEXT,
+    dateModif TEXT
+);
+
+CREATE TABLE Interaction(
+    idContact INTEGER NOT NULL,
+    idInteraction INTEGER NOT NULL,
+    id_todo TEXT,
+    contenu TEXT,
+    date TEXT,
+    PRIMARY KEY (idContact, idInteraction)
+);
+
+CREATE TABLE Todo(
+    idContact INTEGER NOT NULL,
+    idInteraction INTEGER NOT NULL,
+    idTodo INTEGER NOT NULL,
+    contenu TEXT,
+    date TEXT,
+    PRIMARY KEY (idContact, idInteraction, idTodo)
+);
+
+INSERT INTO Contact (id, nom, prenom)
+VALUES (5, 'Barsoni', 'Dorian');
